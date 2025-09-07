@@ -1,3 +1,7 @@
+Repository to train a segmentation network on the [SAR-RARP50 2022](https://www.synapse.org/Synapse:syn27618412/wiki/616881) surgical instrument dataset.
+
+We use the DinoV3 with a DPT head for dense semantic segmentation.
+
 ## Environment Setup
 
 ```bash
@@ -36,8 +40,11 @@ Each dataset subfolder should contain a `frames` directory and a `segmentation` 
 ## Model Capacity
 You can visualise the first three PCA features of the model using:
 ```bash
-python visualise_pca.py --input_frame ./segdata/mmr/frames/video
+python visualise_pca.py \
+--input_frame ./segdata/mmr/frames/video_01_000004740.png
+--only_fg 0/1
 ```
+
 ## Training
 
 Example training command:
@@ -71,13 +78,6 @@ python test.py \
   --repo_dir ./dinov3 \
 ```
 
-## Notes
-
-* Make sure the pretrained DINO weights (`.pth` file) are correctly downloaded and placed under `./ckpt`.
-* Modify paths as needed for your environment.
-* Training and testing configurations (e.g., image size, batch size, learning rate) can be adjusted via command-line arguments.
-* Both train and test support teh largest and smallest dino model but has been tested only on the smallest one due to resource constraint. Its trivially extendable to other models as well.
-
 ## Results
 ### Top 3 PCA on full image:
 ![](src/pca_full.png)
@@ -89,21 +89,30 @@ Results indicate that the model has good enough capacity to distinguish between 
 
 Results indicate that the model has good enough capacity to distinguish between objects in foreground.
 
-### Results for the smallest model after 35 epochs
-Per-class dice coefficient (soft):
+### Results for the smallest model with half resolution and after 35 epochs
+#### Per-class dice coefficient (soft):
 
 ![](src/test_metrics_dice_per_class.png)
 
-Per-class IoU:
+#### Per-class IoU:
 
 ![](src/test_metrics_iou_per_class.png)
  
-* Encoraging results with smallest network and few epochs.
+* Encoraging results with smallest network.
 * Good point to start large scale training with enough resources.
 
-### Video Results
+#### Video Results (click for the full video)
 [![](src/trimmed.gif)](https://youtu.be/eYu81MW8a1M)
-(click for the full video)
+
+
+
+## Notes
+
+* Both train and test support the largest and smallest dino model but has been tested only on the smallest one due to resource constraint. Its trivially extendable to other models as well.
+* Make sure the pretrained DINO weights (`.pth` file) are correctly downloaded and placed under `./ckpt`.
+* Modify paths as needed for your environment.
+* Training and testing configurations (e.g., image size, batch size, learning rate) can be adjusted via command-line arguments.
+
 ## Acknowledgements
 
 We would like to thank the open-source community for their invaluable contributions.  

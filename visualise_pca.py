@@ -131,7 +131,7 @@ def visualise_pca(image_loc, only_fg, MODEL_NAME=MODEL_DINOV3_VITHP):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--image_path", type=str, required=True, default="./mmr/train/frames/video_01_000004740.png")
-    parser.add_argument("--only_fg", type=bool, default=False, help="Only use foreground pixels for PCA and visualization")
+    parser.add_argument("--only_fg", type=int, choices=[0,1], default=0, help="Only use foreground pixels (0/1)")
     args = parser.parse_args()
     assert os.path.exists(args.image_path)  
     visualise_pca(args.image_path, args.only_fg)
