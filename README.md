@@ -99,9 +99,11 @@ Per-class IoU:
 ![](src/test_metrics_iou_per_class.png)
  
 * Encoraging results with smallest network and few epochs.
-* Could point to start large scale training with enough resources.
+* Good point to start large scale training with enough resources.
 
-
+### Video Results
+[![](src/trimmed.png)](https://youtu.be/eYu81MW8a1M)
+(click for the full video)
 ## Acknowledgements
 
 We would like to thank the open-source community for their invaluable contributions.  
@@ -113,4 +115,4 @@ In particular, we acknowledge the following repositories that made this work pos
 
 - [Unimatch](https://github.com/LiheYoung/UniMatch-V2)
 
-- [SegDino] (https://arxiv.org/pdf/2509.00833)
+- [SegDino](https://arxiv.org/pdf/2509.00833)

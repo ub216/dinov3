@@ -144,7 +144,7 @@ def main():
     args = parser.parse_args()
 
     # Output directories
-    save_root = os.path.join(args.save_root, f"segdino_{args.ckpt.split('/')[-1].replace('.pth','')}_{args.input_h}x{args.input_w}")
+    save_root = os.path.join(args.save_root, f"dinov3_{args.ckpt.split('/')[-1].replace('.pth','')}_{args.input_h}x{args.input_w}")
     vis_dir   = os.path.join(save_root, "test_vis")
     csv_path  = os.path.join(save_root, "test_metrics.csv")
     os.makedirs(save_root, exist_ok=True)

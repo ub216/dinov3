@@ -156,9 +156,9 @@ def main():
         torch.cuda.manual_seed_all(args.seed)
 
     ctime = time.strftime("%Y%m%d-%H%M%S")
-    wandb.init(project="mmr", name=f"segdino_{args.dino_size}_{args.input_h}_{ctime}")
+    wandb.init(project="mmr", name=f"dinov3_{args.dino_size}_{args.input_h}_{ctime}")
 
-    save_root = f"./runs/segdino_{args.dino_size}_{args.input_h}_{ctime}"
+    save_root = f"./runs/dinov3_{args.dino_size}_{args.input_h}_{ctime}"
     os.makedirs(save_root, exist_ok=True)
     train_vis_dir = os.path.join(save_root, "train_vis")
     val_vis_dir   = os.path.join(save_root, "val_vis")
