@@ -102,7 +102,7 @@ Per-class IoU:
 * Good point to start large scale training with enough resources.
 
 ### Video Results
-[![](src/trimmed.png)](https://youtu.be/eYu81MW8a1M)
+[![](src/trimmed.gif)](https://youtu.be/eYu81MW8a1M)
 (click for the full video)
 ## Acknowledgements
 
